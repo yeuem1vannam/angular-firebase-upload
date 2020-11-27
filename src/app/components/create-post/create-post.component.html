@@ -1,0 +1,30 @@
+<h2>Create Post</h2>
+
+<form [formGroup]="postForm" (ngSubmit)="onSubmit(postForm.value)">
+  <div>
+    <dt><label for="title">Title</label></dt>
+    <dd><input id="title" type="text" formControlName="title"></dd>
+  </div>
+  <div>
+    <dt><label for="description">Description</label></dt>
+    <dd><input id="description" type="text" formControlName="description"></dd>
+  </div>
+  <div>
+    <dt><label for="body">Body</label></dt>
+    <dd><textarea id="body" type="text" formControlName="body"></textarea></dd>
+  </div>
+  <div>
+    <dt><label for="image">Image</label></dt>
+    <dd>
+      <input
+        id="image"
+        type="text"
+        type="file"
+        (change)="showPreview($event)"
+        #imageUploader
+      >
+    </dd>
+    <img [src]="imagePreviewSrc" (click)="imageUploader.click()" />
+  </div>
+  <div><dd><button class="button" type="submit">Create Post</button></dd></div>
+</form>
